@@ -11,22 +11,19 @@ import java.io.File;
  *
  * @author JONATASWILLIAMSILVES
  */
-
 public class ScanFiles {
-    private File path;
-    
-    public void setPath(String $path){
-        this.path = new File($path); 
-    }
-    
-    public void Scan(final File $pasta){
-        for (final File listaArquivos : this.path.listFiles()){
-            if (listaArquivos.isDirectory()){
-                Scan(listaArquivos);
-            } else {
-                System.out.println(listaArquivos.getName());
-            }
-        }
-    }
-    
+
+	private File path;
+
+	public void setPath(String $path) {
+		this.path = new File($path);
+	}
+
+	public void Scan() {
+		for (final File listaArquivos : this.path.listFiles()) {
+			if (listaArquivos.getName().endsWith("classe")){
+				
+			}
+		}
+	}
 }
