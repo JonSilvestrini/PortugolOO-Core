@@ -11,4 +11,22 @@ package portugoloo.input;
  */
 public class Arquivo {
     
+    private String nomeArq, conteudoArq;
+
+    public String getNomeArq() {
+        return nomeArq;
+    }
+
+    public void setNomeArq(String nomeArq) {
+        this.nomeArq = nomeArq;
+    }
+
+    public String getConteudoArq() {
+        return conteudoArq;
+    }
+
+    public void setConteudoArq(String conteudoArq) {
+        this.conteudoArq = conteudoArq;
+    }
+    
 }
