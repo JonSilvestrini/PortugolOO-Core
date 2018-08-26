@@ -5,6 +5,7 @@
  */
 package portugoloo.input;
 
+import javabeans.Arquivo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,8 +41,9 @@ public class ScanFiles {
         
         //Esse método escaneia por arquivos .classes e cria duas variáveis com o nome do arquivo e o conteudo concatenado
 	public void ScanClasses() throws IOException {
-		for (final File listaArquivos : this.path.listFiles()) { //for each que lê conteúdo da pasta
+		for (final File listaArquivos : this.path.listFiles()) {  //for each que lê conteúdo da pasta
 			if (listaArquivos.getName().endsWith(".classe")){ //condicional que verifica se o arquivo é ".classe"
+                                this.conteudoArq = new StringBuilder();   //Instancia novo String Builder
 				this.nomeArq = listaArquivos.getName();   //Pega o nome do arquivo
                             try {                                         //tenta preparar o arquivo para leitura
                                 this.arq = new FileReader(listaArquivos.getPath()); //Prepara o arquivo para leitura
@@ -51,13 +53,15 @@ public class ScanFiles {
                             this.lerArq = new BufferedReader(this.arq); //Prepara o buffer de memória para leitura
                             String conteudoLinha = this.lerArq.readLine(); //Lê a primeira linha
                             while (conteudoLinha != null){ //Lê enquanto linha não for null
+                                conteudoLinha = conteudoLinha.replaceAll("\t", " "); //substitui todos os tabs por espaços
                                 this.conteudoArq.append(conteudoLinha); //Concatena com a linha anterior
-                                this.lerArq.readLine();  //Lê próxima linha
+                                conteudoLinha = this.lerArq.readLine();  //Lê próxima linha
                             }  //Se a linha for null indica final do arquivo
                             this.arq.close();   //Fecha arquivo lido
                             this.arquivo.setNomeArq(this.nomeArq);   //Envia nome do arquivo para classe modelo
                             this.arquivo.setConteudoArq(this.conteudoArq.toString());   //Envia conteúdo do arquivo para classe modelo
                             this.arquivos.add(this.arquivo);   //Adiciona classe modelo em uma lista
+                            
 			}
 		}
 	}
