@@ -58,6 +58,7 @@ public class ScanFiles {
                                 conteudoLinha = this.lerArq.readLine();  //Lê próxima linha
                             }  //Se a linha for null indica final do arquivo
                             this.arq.close();   //Fecha arquivo lido
+                            this.nomeArq = this.nomeArq.substring(0, (this.nomeArq.length() - 7)); //Corta extensão do nome do arquivo
                             this.arquivo.setNomeArq(this.nomeArq);   //Envia nome do arquivo para classe modelo
                             this.arquivo.setConteudoArq(this.conteudoArq.toString());   //Envia conteúdo do arquivo para classe modelo
                             this.arquivos.add(this.arquivo);   //Adiciona classe modelo em uma lista
