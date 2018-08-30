@@ -38,7 +38,6 @@ public class ScanFiles {
             return arquivos;
         }
         
-        
         //Esse método escaneia por arquivos .classes e cria duas variáveis com o nome do arquivo e o conteudo concatenado
 	public void ScanClasses() throws IOException {
 		for (final File listaArquivos : this.path.listFiles()) {  //for each que lê conteúdo da pasta
