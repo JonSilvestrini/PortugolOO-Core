@@ -85,6 +85,34 @@ public class DicionarioPortugol {
                 this.token = 14;
                 break;
                 
+            case "caso":
+                this.token = 15;
+                break;
+                
+            case "escolha" :
+                this.token = 16;
+                break;
+                
+            case "para" :
+                this.token = 17;
+                break;
+                
+            case "enquanto":
+                this.token = 18;
+                break;
+                
+            case "faça":
+                this.token = 19;
+                break;
+                
+            case "estatico":
+                this.token = 20;
+                break;
+                
+            case "constante":
+                this.token = 21;
+                break;
+                
             default:
                 break;
         }
