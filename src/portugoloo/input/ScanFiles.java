@@ -34,7 +34,7 @@ public class ScanFiles {
 
 	public void setPath(String $path) {
 		this.path = new File($path);
-                Arquivo arquivo = new Arquivo();
+                Arquivo arquivo;
 	}
         
         public List getListaArquivos(){
@@ -61,7 +61,11 @@ public class ScanFiles {
                             }  //Se a linha for null indica final do arquivo
                             this.arq.close();   //Fecha arquivo lido
                             this.nomeArq = this.nomeArq.substring(0, (this.nomeArq.length() - 7)); //Corta extensão do nome do arquivo
-                            this.conteudoArq = Arrays.asList(conteudoArqTmp.toString().split(";"));    //Dividindo em ';' em vez de linhas
+                            this.conteudoArq = Arrays.asList(conteudoArqTmp.toString().split(";"));
+                           // for (int i=0;i < conteudoArq.size();i++){  //Dividindo em ';' em vez de linhas
+                           //     this.conteudoArq = Arrays.asList(conteudoArq.get(i).split("\\{\""));
+                           // }
+                            this.arquivo = new Arquivo();
                             this.arquivo.setNomeArq(this.nomeArq);   //Envia nome do arquivo para classe modelo
                             this.arquivo.setConteudoArq(this.conteudoArq);   //Envia conteúdo do arquivo para classe modelo
                             this.arquivos.add(this.arquivo);   //Adiciona classe modelo em uma lista
