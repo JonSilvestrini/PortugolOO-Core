@@ -15,6 +15,9 @@ public class Arquivo {
     
     private String nomeArq;
     private List<String> conteudoArq ;
+
+    
+    public Arquivo(){}
             
     public String getNomeArq() {
         return nomeArq;

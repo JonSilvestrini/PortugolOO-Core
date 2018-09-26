@@ -5,10 +5,19 @@
  */
 package portugoloo.lexico;
 
+import javabeans.Arquivo;
+
 /**
  *
  * @author JONATASWILLIAMSILVES
  */
-public class Converter {
+public class Converte {
+    
+    public void converter(Arquivo arquivos){
+        for (String linha : arquivos.getConteudoArq()) {
+            
+        }
+        
+    }
     
 }
