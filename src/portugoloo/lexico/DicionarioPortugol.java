@@ -13,8 +13,8 @@ public class DicionarioPortugol {
 
 	private String palavra,token;
 
-	public void setPalavra(String $palavra) {
-		this.palavra = $palavra;
+	public void setPalavra(String palavra) {
+		this.palavra = palavra;
 	}
 
 	public String consultaPalavra() {
