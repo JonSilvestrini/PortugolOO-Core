@@ -24,52 +24,47 @@ import java.util.logging.Logger;
 public class ScanFiles {
 
 	private File path;
-        private List<Arquivo> arquivos = new ArrayList<Arquivo>();
-        private Arquivo arquivo = new Arquivo();
-        private List<String> conteudoArq;
-        private StringBuilder conteudoArqTmp;
-        private FileReader arq;
-        private BufferedReader lerArq;
-        private String nomeArq;
+	private List<Arquivo> arquivos = new ArrayList<Arquivo>();
+	private Arquivo arquivo = new Arquivo();
+	private List<String> conteudoArq;
+	private FileReader arq;
+	private BufferedReader lerArq;
+	private String nomeArq;
 
 	public void setPath(String $path) {
 		this.path = new File($path);
-                Arquivo arquivo;
+		Arquivo arquivo;
 	}
-        
-        public List getListaArquivos(){
-            return arquivos;
-        }
-        
-        //Esse método escaneia por arquivos .classes e cria duas variáveis com o nome do arquivo e o conteudo concatenado
+
+	public List getListaArquivos() {
+		return arquivos;
+	}
+
+	//Esse método escaneia por arquivos .classes e cria duas variáveis com o nome do arquivo e o conteudo concatenado
 	public void ScanClasses() throws IOException {
 		for (final File listaArquivos : this.path.listFiles()) {  //for each que lê conteúdo da pasta
-			if (listaArquivos.getName().endsWith(".classe")){ //condicional que verifica se o arquivo é ".classe"
-                            this.conteudoArqTmp = new StringBuilder();  //Instanciando conteudoArqTmp
-                            this.nomeArq = listaArquivos.getName();   //Pega o nome do arquivo
-                            try {                                         //tenta preparar o arquivo para leitura
-                                this.arq = new FileReader(listaArquivos.getPath()); //Prepara o arquivo para leitura
-                            } catch (FileNotFoundException ex) {
-                                Logger.getLogger(ScanFiles.class.getName()).log(Level.SEVERE, null, ex); 
-                            }
-                            this.lerArq = new BufferedReader(this.arq); //Prepara o buffer de memória para leitura
-                            String conteudoLinha = this.lerArq.readLine(); //Lê a primeira linha
-                            while (conteudoLinha != null){ //Lê enquanto linha não for null
-                                conteudoLinha = conteudoLinha.replaceAll("\t", " "); //substitui todos os tabs por espaços
-                                this.conteudoArqTmp.append(conteudoLinha); //Concatena com a linha anterior
-                                conteudoLinha = this.lerArq.readLine();  //Lê próxima linha
-                            }  //Se a linha for null indica final do arquivo
-                            this.arq.close();   //Fecha arquivo lido
-                            this.nomeArq = this.nomeArq.substring(0, (this.nomeArq.length() - 7)); //Corta extensão do nome do arquivo
-                            this.conteudoArq = Arrays.asList(conteudoArqTmp.toString().split(";"));
-                           // for (int i=0;i < conteudoArq.size();i++){  //Dividindo em ';' em vez de linhas
-                           //     this.conteudoArq = Arrays.asList(conteudoArq.get(i).split("\\{\""));
-                           // }
-                            this.arquivo = new Arquivo();
-                            this.arquivo.setNomeArq(this.nomeArq);   //Envia nome do arquivo para classe modelo
-                            this.arquivo.setConteudoArq(this.conteudoArq);   //Envia conteúdo do arquivo para classe modelo
-                            this.arquivos.add(this.arquivo);   //Adiciona classe modelo em uma lista
-         
+			if (listaArquivos.getName().endsWith(".classe")) { //condicional que verifica se o arquivo é ".classe"
+				this.nomeArq = listaArquivos.getName();   //Pega o nome do arquivo
+				this.arq = new FileReader(listaArquivos.getPath()); //Prepara o arquivo para leitura
+				this.lerArq = new BufferedReader(this.arq); //Prepara o buffer de memória para leitura
+				String conteudoLinha = this.lerArq.readLine(); //Lê a primeira linha
+				conteudoArq = new ArrayList<String>();
+				while (conteudoLinha != null) { //Lê enquanto linha não for null
+					conteudoLinha = conteudoLinha.replaceAll("\t", " "); //substitui todos os tabs por espaços			       
+					conteudoArq.add(conteudoLinha);
+					conteudoLinha = this.lerArq.readLine();  //Lê próxima linha
+				}  //Se a linha for null indica final do arquivo
+				this.arq.close();   //Fecha arquivo lido
+				this.nomeArq = this.nomeArq.substring(0, (this.nomeArq.length() - 7)); //Corta extensão do nome do arquivo
+				// this.conteudoArq = Arrays.asList(conteudoArqTmp.toString().split(";"));
+				// for (int i=0;i < conteudoArq.size();i++){  //Dividindo em ';' em vez de linhas
+				//     this.conteudoArq = Arrays.asList(conteudoArq.get(i).split("\\{\""));
+				// }
+				this.arquivo = new Arquivo();
+				this.arquivo.setNomeArq(this.nomeArq);   //Envia nome do arquivo para classe modelo
+				this.arquivo.setConteudoArq(this.conteudoArq);   //Envia conteúdo do arquivo para classe modelo
+				this.arquivos.add(this.arquivo);   //Adiciona classe modelo em uma lista
+
 			}
 		}
 	}
