@@ -19,7 +19,7 @@ public class Converte {
 
 	private ArquivoIntermediario arqInt;
 	private DicionarioPortugol dicpol;
-	private List<Integer> cod;
+	private List<String> cod;
 	private List<ArquivoIntermediario> listaInter = new ArrayList<ArquivoIntermediario>();
 
 	public List<ArquivoIntermediario> getListaInter() {
@@ -35,12 +35,13 @@ public class Converte {
 	public void converter(List<Arquivo> arquivos) {
 		for (Arquivo arquivo : arquivos) {
 			arqInt = new ArquivoIntermediario();
-			cod = new ArrayList<Integer>();
+			cod = new ArrayList<String>();
 			arqInt.setNomeInt(arquivo.getNomeArq());
 			for (String linha : arquivo.getConteudoArq()) {
 				System.out.println(linha);
 				dicpol.setPalavra(linha);
-				cod.add(dicpol.consultaPalavra());
+				String linhaCod = dicpol.consultaPalavra();
+				cod.add(linhaCod);
 			}
 			arqInt.setConteudoInt(cod);
 			this.listaInter.add(arqInt);

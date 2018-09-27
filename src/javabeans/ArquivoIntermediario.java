@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class ArquivoIntermediario {
 	private String nomeInt;
-	private List<Integer> conteudoInt = new ArrayList<Integer>();
+	private List<String> conteudoInt = new ArrayList<String>();
 
 	public String getNomeInt() {
 		return nomeInt;
@@ -24,11 +24,11 @@ public class ArquivoIntermediario {
 		this.nomeInt = nomeInt;
 	}
 
-	public List<Integer> getConteudoInt() {
+	public List<String> getConteudoInt() {
 		return conteudoInt;
 	}
 
-	public void setConteudoInt(List<Integer> conteudoInt) {
+	public void setConteudoInt(List<String> conteudoInt) {
 		this.conteudoInt = conteudoInt;
 	}
 	
