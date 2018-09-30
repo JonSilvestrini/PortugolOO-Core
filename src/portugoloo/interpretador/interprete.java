@@ -22,7 +22,7 @@ public class interprete {
 	/* "gerarCodigo" está retornando uma string temporariamente para testes,
 	 * futuramente ela irá gerar um arquivo java
 	 */
-	public String gerarCodigo(List<String> lista) {
+	public void Run(List<String> lista) {
 
 		for(final String item :lista) {
 
@@ -30,7 +30,8 @@ public class interprete {
 
 		}
 			
-		return codigoFinal.toString();
+		Compiler c = new Compiler();
+		c.Compile(codigoFinal.toString());
 	}
 	
 	private static String translate(String input) {
@@ -61,6 +62,8 @@ public class interprete {
 		output=output.replace("||19|", "do");
 		output=output.replace("||20|", "static");
 		output=output.replace("||21|", "final");
+		
+		output=output.replace("||22|", "return");
 
 		return output;
 	}
