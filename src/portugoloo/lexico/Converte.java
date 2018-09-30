@@ -47,7 +47,7 @@ public class Converte {
         String output = input;
         
         output = output.replace("metodo publico Principal()", "||203|");
-        output = output.replace("classe publica", "||10|");
+        output = output.replace("classe publica", "||0| ||1|");
         output = output.replace("publica", "||0|");
         output = output.replace("publico", "||0|");
         output = output.replace("classe", "||1|");
