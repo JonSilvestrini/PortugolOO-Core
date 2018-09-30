@@ -39,7 +39,8 @@ public class interprete {
 		
 		
 		String output = input;
-
+                
+		output=output.replace("||203|", "public static void main(String args[])");
 		output=output.replace("||0|", "public");
 		output=output.replace("||1|", "class");
 		output=output.replace("||2|", "method");
