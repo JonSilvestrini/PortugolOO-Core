@@ -6,10 +6,10 @@
 package portugoloo.lexico;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javabeans.Arquivo;
-import javabeans.ArquivoIntermediario;
-
+import javabeans.Token;
 
 /**
  *
@@ -17,34 +17,48 @@ import javabeans.ArquivoIntermediario;
  */
 public class Converte {
 
-	private ArquivoIntermediario arqInt;
-	private DicionarioPortugol dicpol;
-	private List<String> cod;
-	private List<ArquivoIntermediario> listaInter = new ArrayList<ArquivoIntermediario>();
+    private Arquivo arqInt;
+    private List<String> cod;
+    private List<Arquivo> listaInter = new ArrayList<Arquivo>();
+    private List<Token> tokens;
 
-	public List<ArquivoIntermediario> getListaInter() {
-		return listaInter;
-	}
+    public Converte(List<Token> tokens) {
+        this.tokens = tokens;
+    }
+    
+    
 
-	public void setListaInter(List<ArquivoIntermediario> listaInter) {
-		this.listaInter = listaInter;
-	}
+    public List<Arquivo> getListaInter() {
+        return listaInter;
+    }
 
-	
-	
-	public void converter(List<Arquivo> arquivos) {
-		for (Arquivo arquivo : arquivos) {
-			arqInt = new ArquivoIntermediario();
-			cod = new ArrayList<String>();
-			arqInt.setNomeInt(arquivo.getNomeArq());
-			for (String linha : arquivo.getConteudoArq()) {
-				System.out.println(linha);
-				dicpol.setPalavra(linha);
-				String linhaCod = dicpol.consultaPalavra();
-				cod.add(linhaCod);
-			}
-			arqInt.setConteudoInt(cod);
-			this.listaInter.add(arqInt);
-		}
-	}
+    public void setListaInter(List<Arquivo> listaInter) {
+        this.listaInter = listaInter;
+    }
+
+    public void converter(List<Arquivo> arquivos) {
+        for (Arquivo arquivo : arquivos) {
+            arqInt = new Arquivo();
+            cod = new ArrayList<String>();
+            arqInt.setNomeArq(arquivo.getNomeArq());
+            for (String linha : arquivo.getConteudoArq()) {
+                String linhaCod = translate(linha);
+                cod.add(linhaCod);
+            }
+            arqInt.setConteudoArq(cod);
+            this.listaInter.add(arqInt);
+        }
+    }
+
+    private String translate(String input) {
+
+        String output = input;
+        
+        for (Token token : tokens){
+            output = output.replace(token.getLoop(), token.getToken());
+        }
+        
+        return output;
+    }
+
 }

@@ -13,6 +13,16 @@
             <file>file:/C:/Users/JONATASWILLIAMSILVES/Documents/NetBeansProjects/PortugolOOCore/src/portugoloo/input/ScanFiles.java</file>
             <file>file:/C:/Users/JONATASWILLIAMSILVES/Documents/NetBeansProjects/PortugolOOCore/src/portugoloo/lexico/Converte.java</file>
             <file>file:/C:/Users/JONATASWILLIAMSILVES/Documents/NetBeansProjects/PortugolOOCore/src/portugoloo/interpretador/interprete.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOO-Core/src/portugoloo/lexico/Converte.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOO-Core/src/portugoloo/interpretador/interprete.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOO-Core/src/portugoloo/interpretador/Compiler.java</file>
+        </group>
+        <group>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOO-Core/src/javabeans/Token.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOO-Core/src/portugoloo/interpretador/Interprete.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOO-Core/src/javabeans/TokensGenBasico.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOO-Core/src/portugoloo/lexico/Converte.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOO-Core/src/portugoloo/interpretador/Compiler.java</file>
         </group>
     </open-files>
 </project-private>
