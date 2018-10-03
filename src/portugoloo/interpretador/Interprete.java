@@ -49,6 +49,7 @@ public class Interprete {
                 codigoFinal.add(javaCod);
             }
             arqJava.setConteudoArq(codigoFinal);
+	    arqJava.setMain(arquivo.isMain());
             listaJava.add(arqJava);
         }
     }

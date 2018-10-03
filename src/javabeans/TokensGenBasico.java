@@ -19,6 +19,36 @@ public class TokensGenBasico {
     public List getTokens(){
         token = new Token("metodo publico Principal()", "||203|", "public static void main(String args[])");
         tokens.add(token);
+        token = new Token("inteiro publico", "||7| ||1|", "public int");
+        tokens.add(token);
+        token = new Token("texto publico", "||6| ||1|", "public String");
+        tokens.add(token);
+        token = new Token("real publico", "||8| ||1|", "public double");
+        tokens.add(token);
+        token = new Token("caractere publico", "||9| ||1|", "public char");
+        tokens.add(token);
+        token = new Token("logico publico", "||10| ||1|", "public boolean");
+        tokens.add(token);
+        token = new Token("inteiro privado", "||7| ||25|", "private int");
+        tokens.add(token);
+        token = new Token("texto privado", "||6| ||25|", "private String");
+        tokens.add(token);
+        token = new Token("real privado", "||8| ||25|", "private double");
+        tokens.add(token);
+        token = new Token("caractere privado", "||9| ||25|", "private char");
+        tokens.add(token);
+        token = new Token("logico privado", "||10| ||25|", "private boolean");
+        tokens.add(token);
+        token = new Token("inteiro protegido", "||7| ||26|", "protected int");
+        tokens.add(token);
+        token = new Token("texto protegido", "||6| ||26|", "protected String");
+        tokens.add(token);
+        token = new Token("real protegido", "||8| ||26|", "protected double");
+        tokens.add(token);
+        token = new Token("caractere protegido", "||9| ||26|", "protected char");
+        tokens.add(token);
+        token = new Token("logico protegido", "||10| ||26|", "protected boolean");
+        tokens.add(token);
         token = new Token("classe publica", "||0| ||1|", "public class");
         tokens.add(token);
         token = new Token("publica", "||0|", "public");
@@ -26,6 +56,8 @@ public class TokensGenBasico {
         token = new Token("publico", "||0|", "public");
         tokens.add(token);
         token = new Token("classe", "||1|", "class");
+        tokens.add(token);
+        token = new Token("metodo ", "||2|", "");
         tokens.add(token);
         token = new Token("escreva", "||4|", "System.out.print");
         tokens.add(token);
@@ -69,6 +101,13 @@ public class TokensGenBasico {
         tokens.add(token);
         token = new Token("super", "||24|", "super");
         tokens.add(token);
+        token = new Token("privado", "||25|.", "private");
+        tokens.add(token);
+        token = new Token("protegido", "||26|", "protect");
+        tokens.add(token);
+        token = new Token("novo", "||27|", "new");
+        tokens.add(token);
+	
         return tokens;
     }
     

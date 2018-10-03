@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javabeans.Arquivo;
 import javabeans.Token;
+import javabeans.TokensGenBasico;
 
 /**
  *
  * @author JONATASWILLIAMSILVES
  */
-public class Converte {
+public class Converte{
 
     private Arquivo arqInt;
     private List<String> cod;
@@ -40,8 +41,9 @@ public class Converte {
             arqInt.setNomeArq(arquivo.getNomeArq());
             for (String linha : arquivo.getConteudoArq()) {
                 String linhaCod = translate(linha);
-                if (linhaCod.contains("||203|"))
+                if (linhaCod.contains("||203|")){
                     arqInt.setMain(true);
+		}
                 cod.add(linhaCod);
             }
             arqInt.setConteudoArq(cod);
