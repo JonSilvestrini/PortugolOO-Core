@@ -43,6 +43,8 @@ public class Converte {
             arqInt.setNomeArq(arquivo.getNomeArq());
             for (String linha : arquivo.getConteudoArq()) {
                 String linhaCod = translate(linha);
+		if (linhaCod.contentEquals("||203|"))
+			arqInt.setIsMain(true);
                 cod.add(linhaCod);
             }
             arqInt.setConteudoArq(cod);
