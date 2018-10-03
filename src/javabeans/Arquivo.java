@@ -15,7 +15,7 @@ public class Arquivo {
 
 	private String nomeArq;
 	private List<String> conteudoArq;
-	private boolean isMain;
+	private boolean Main;
 
 	public Arquivo() {
 	}
@@ -36,12 +36,12 @@ public class Arquivo {
 		this.conteudoArq = conteudoArq;
 	}
 
-	public boolean isIsMain() {
-		return isMain;
+	public boolean isMain() {
+		return Main;
 	}
 
-	public void setIsMain(boolean isMain) {
-		this.isMain = isMain;
+	public void setMain(boolean isMain) {
+		this.Main = isMain;
 	}
 
 }

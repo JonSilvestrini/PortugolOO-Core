@@ -6,7 +6,6 @@
 package portugoloo.lexico;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javabeans.Arquivo;
 import javabeans.Token;
@@ -19,14 +18,12 @@ public class Converte {
 
     private Arquivo arqInt;
     private List<String> cod;
-    private List<Arquivo> listaInter = new ArrayList<Arquivo>();
+    private List<Arquivo> listaInter = new ArrayList<>();
     private List<Token> tokens;
 
     public Converte(List<Token> tokens) {
         this.tokens = tokens;
     }
-    
-    
 
     public List<Arquivo> getListaInter() {
         return listaInter;
@@ -39,16 +36,14 @@ public class Converte {
     public void converter(List<Arquivo> arquivos) {
         for (Arquivo arquivo : arquivos) {
             arqInt = new Arquivo();
-            cod = new ArrayList<String>();
+            cod = new ArrayList<>();
             arqInt.setNomeArq(arquivo.getNomeArq());
             for (String linha : arquivo.getConteudoArq()) {
                 String linhaCod = translate(linha);
-		//if (linhaCod.contains("||203|"))
-                  //      System.out.println("AAA");
-			
+                if (linhaCod.contains("||203|"))
+                    arqInt.setMain(true);
                 cod.add(linhaCod);
             }
-            arqInt.setIsMain(true);
             arqInt.setConteudoArq(cod);
             this.listaInter.add(arqInt);
         }
@@ -57,11 +52,11 @@ public class Converte {
     private String translate(String input) {
 
         String output = input;
-        
-        for (Token token : tokens){
+
+        for (Token token : tokens) {
             output = output.replace(token.getLoop(), token.getToken());
         }
-        
+
         return output;
     }
 
