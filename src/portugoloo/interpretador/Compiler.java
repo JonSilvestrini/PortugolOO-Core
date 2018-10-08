@@ -6,34 +6,44 @@
 package portugoloo.interpretador;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.util.List;
+import javabeans.Arquivo;
 
 /**
  *
  * @author root
  */
 public class Compiler {
-	private final String extencaoArquivoTmp = ".java";
-	private final String nomeArquivoTmp = "JavaCode";
+
+	private Arquivo arquivoMain;
+	private List<Arquivo> arquivos;
+
+	private String path;
+
+	public Compiler(List<Arquivo> arquivos, String path) {
+		this.arquivos = arquivos;
+		this.path = path + "output/";
+	}
 
 
-
-
-
-
-
-
-	public void Compile(String codigoFonte){
-		Writer(codigoFonte);	
-		try {
-			runProcess("javac " + nomeArquivoTmp + extencaoArquivoTmp);
-			runProcess("java " + nomeArquivoTmp);
-		}catch (Exception e ) {
-
+	public void Compile() throws Exception{
+		
+		for (final Arquivo arq : arquivos) {
+			if (arq.isMain()) {
+				arquivoMain = arq;
+			}
+			Writer(arq);
 		}
+
+		runProcess("javac -classpath " + this.path + " " + this.path  + arquivoMain.getNomeArq() + ".java");
+		
+		runProcess("java -classpath " + this.path + " " + arquivoMain.getNomeArq());
 	}
 
 
@@ -49,21 +59,24 @@ public class Compiler {
 	private static void runProcess(String command) throws Exception {
 		Process pro = Runtime.getRuntime().exec(command);
 
-		printLines("stdout:", pro.getInputStream());
-		printLines("stderr:", pro.getErrorStream());
+		printLines(command + " stdout:", pro.getInputStream());
+		printLines(command + " stderr:", pro.getErrorStream());
 		pro.waitFor();
 		System.out.println(command + " exitValue() " + pro.exitValue());
 	}
 	
 
-	private void Writer (String text) {
-		 try {
-			PrintWriter w = new PrintWriter(nomeArquivoTmp, "UTF-8");
-			w.print(text);
+	private void Writer (Arquivo arq) {
+		try {
+			new File(path).mkdirs();
+			PrintWriter w = new PrintWriter(this.path + arq.getNomeArq() + ".java", "UTF-8");
+			for (final String linha : arq.getConteudoArq()) 
+				w.print(linha +"\n");
+			
 			w.close();
-		 }catch (IOException e) {
-			 System.out.println("Erro ao criar o arquivo: " + e.getMessage()); 
-		 }
+		}catch (IOException e) {
+			System.out.println("Erro ao criar o arquivo: " + e.getMessage());
+		}
 		
 	}
 	
