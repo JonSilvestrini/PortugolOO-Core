@@ -47,7 +47,7 @@ public class Compiler {
 	}
 
 
-	private static void printLines(String name, InputStream ins) throws Exception {
+	private void printLines(String name, InputStream ins) throws Exception {
 		String line = null;
 		BufferedReader in = new BufferedReader(
 			new InputStreamReader(ins));
@@ -56,17 +56,18 @@ public class Compiler {
 		}
 	}
 
-	private static void runProcess(String command) throws Exception {
+	private void runProcess(String command) throws Exception {
 		Process pro = Runtime.getRuntime().exec(command);
 
-		printLines(command + " stdout:", pro.getInputStream());
-		printLines(command + " stderr:", pro.getErrorStream());
+		printLines(arquivoMain.getNomeArq()+" stdout:", pro.getInputStream());
+		printLines(arquivoMain.getNomeArq()+" stderr:", pro.getErrorStream());
 		pro.waitFor();
-		System.out.println(command + " exitValue() " + pro.exitValue());
+		System.out.println(arquivoMain.getNomeArq()+" exitValue() " + pro.exitValue());
 	}
 	
 
 	private void Writer (Arquivo arq) {
+		new File(this.path).delete();
 		try {
 			new File(path).mkdirs();
 			PrintWriter w = new PrintWriter(this.path + arq.getNomeArq() + ".java", "UTF-8");

@@ -17,7 +17,7 @@ public class TokensGenBasico {
     private Token token;
     
     public List getTokens(){
-        token = new Token("metodo publico Principal()", "||203|", "public static void main(String args[])");
+        token = new Token("metodo publico Principal\\(\\)", "||203|", "public static void main(String args[])");
         tokens.add(token);
         token = new Token("inteiro publico", "||7| ||1|", "public int");
         tokens.add(token);
@@ -57,7 +57,7 @@ public class TokensGenBasico {
         tokens.add(token);
         token = new Token("classe", "||1|", "class");
         tokens.add(token);
-        token = new Token("metodo ", "||2|", "");
+        token = new Token("metodo", "||2|", " ");
         tokens.add(token);
         token = new Token("escreva", "||4|", "System.out.print");
         tokens.add(token);
@@ -106,6 +106,8 @@ public class TokensGenBasico {
         token = new Token("protegido", "||26|", "protect");
         tokens.add(token);
         token = new Token("novo", "||27|", "new");
+        tokens.add(token);
+        token = new Token("nova", "||27|", "new");
         tokens.add(token);
 	
         return tokens;
