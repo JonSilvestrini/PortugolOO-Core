@@ -19,14 +19,24 @@ import javabeans.Arquivo;
  *
  * @author root
  */
-public class Compiler {
+public class Compilador {
 
 	private Arquivo arquivoMain;
 	private List<Arquivo> arquivos;
 
 	private String path;
+	
+	private StringBuilder OutputText;
 
-	public Compiler(List<Arquivo> arquivos, String path) {
+	public StringBuilder getOutputText() {
+		return OutputText;
+	}
+
+	public void setOutputText(StringBuilder OutputText) {
+		this.OutputText = OutputText;
+	}
+
+	public Compilador(List<Arquivo> arquivos, String path) {
 		this.arquivos = arquivos;
 		this.path = path + "output/";
 	}
@@ -53,6 +63,7 @@ public class Compiler {
 			new InputStreamReader(ins));
 		while ((line = in.readLine()) != null) {
 			System.out.println(name + " " + line);
+			this.getOutputText().append(line);
 		}
 	}
 
