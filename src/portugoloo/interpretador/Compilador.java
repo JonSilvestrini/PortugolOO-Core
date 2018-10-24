@@ -26,19 +26,17 @@ public class Compilador {
 
 	private String path;
 	
-	private StringBuilder OutputText;
+	private String OutputText;
 
-	public StringBuilder getOutputText() {
+	public String getOutputText() {
 		return OutputText;
 	}
 
-	public void setOutputText(StringBuilder OutputText) {
-		this.OutputText = OutputText;
-	}
+	
 
 	public Compilador(List<Arquivo> arquivos, String path) {
 		this.arquivos = arquivos;
-		this.path = path + "output/";
+		this.path = path + "/output/";
 	}
 
 
@@ -54,6 +52,7 @@ public class Compilador {
 		runProcess("javac -classpath " + this.path + " " + this.path  + arquivoMain.getNomeArq() + ".java");
 		
 		runProcess("java -classpath " + this.path + " " + arquivoMain.getNomeArq());
+
 	}
 
 
@@ -63,7 +62,7 @@ public class Compilador {
 			new InputStreamReader(ins));
 		while ((line = in.readLine()) != null) {
 			System.out.println(name + " " + line);
-			this.getOutputText().append(line);
+			OutputText+="\n" +line;
 		}
 	}
 
