@@ -19,16 +19,24 @@ import javabeans.Arquivo;
  *
  * @author root
  */
-public class Compiler {
+public class Compilador {
 
 	private Arquivo arquivoMain;
 	private List<Arquivo> arquivos;
 
 	private String path;
+	
+	private String OutputText;
 
-	public Compiler(List<Arquivo> arquivos, String path) {
+	public String getOutputText() {
+		return OutputText;
+	}
+
+	
+
+	public Compilador(List<Arquivo> arquivos, String path) {
 		this.arquivos = arquivos;
-		this.path = path + "output/";
+		this.path = path + "/output/";
 	}
 
 
@@ -44,6 +52,7 @@ public class Compiler {
 		runProcess("javac -classpath " + this.path + " " + this.path  + arquivoMain.getNomeArq() + ".java");
 		
 		runProcess("java -classpath " + this.path + " " + arquivoMain.getNomeArq());
+
 	}
 
 
@@ -53,6 +62,7 @@ public class Compiler {
 			new InputStreamReader(ins));
 		while ((line = in.readLine()) != null) {
 			System.out.println(name + " " + line);
+			OutputText+="\n" +line;
 		}
 	}
 
