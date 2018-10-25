@@ -62,7 +62,7 @@ public class Compilador {
 			new InputStreamReader(ins));
 		while ((line = in.readLine()) != null) {
 			System.out.println(name + " " + line);
-			OutputText+="\n" +line;
+			OutputText+= line + "\n";
 		}
 	}
 
