@@ -99,6 +99,8 @@ public class Compilador {
 
 	public boolean CleanCompile() throws Exception {
 		File index = new File(this.path);
+		if (!index.exists())
+			index.mkdir();
 		for (final File file : index.listFiles()){
 			file.delete();
 		}
