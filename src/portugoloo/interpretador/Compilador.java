@@ -91,8 +91,8 @@ public class Compilador {
 
 
 		
-		if (runProcess("java -classpath " + this.path + " " + arquivoMain.getNomeArq()) != 0 )
-			return false;
+//		if (runProcess("java -classpath " + this.path + " " + arquivoMain.getNomeArq()) != 0 )
+//			return false;
 
 		return true;
 	}
