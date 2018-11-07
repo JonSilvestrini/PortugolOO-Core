@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.List;
 import javabeans.Arquivo;
 
@@ -25,6 +26,8 @@ public class Compilador {
 
 	private Arquivo arquivoMain;
 	private List<Arquivo> arquivos;
+	private List<Arquivo> biblioteca;
+	private Arquivo bl = new Arquivo() ;
 
 	private String path;
 
@@ -54,10 +57,11 @@ public class Compilador {
 	public Compilador(List<Arquivo> arquivos, String path) {
 		this.arquivos = arquivos;
 		this.path = path + "/output/";
+		Biblioteca();	
 	}
 
 	public Compilador() {
-
+		Biblioteca();
 	}
 
 	public List<Arquivo> getArquivos() {
@@ -85,6 +89,7 @@ public class Compilador {
 			}
 			Writer(arq);
 		}
+		Biblioteca();
 
 		if (runProcess("javac -classpath " + this.path + " " + this.path  + arquivoMain.getNomeArq() + ".java") !=0)
 			return false;
@@ -142,6 +147,42 @@ public class Compilador {
 			System.out.println("Erro ao criar o arquivo: " + e.getMessage());
 		}
 		
+	}
+
+	public void Biblioteca() {
+		try {
+			PrintWriter w = new PrintWriter(this.path + "Loop.java", "UTF-8");
+			w.print("import java.io.BufferedReader;\n" +
+					"import java.io.IOException;\n" +
+					"import java.io.InputStreamReader;\n" +
+					"\n" +
+					"public class Loop {\n" +
+					"    public static String Read() {\n" +
+					" BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n" +
+					" String input = \"null\";\n" +
+					"\n" +
+					" try {\n" +
+					"  input = br.readLine();\n" +
+					" }\n" +
+					" catch (IOException e) {\n" +
+					"  System.out.println(\"deu ruim\");\n" +
+					" }\n" +
+					" return input;\n" +
+					" \n" +
+					"}\n" +
+					"public static void delay(int millis) {"
+					+ "try {"
+					+ "Thread.sleep(millis);"
+					+ "} catch (Exception e) {"
+					+ "System.out.println(\"erro ao pausar a programação\");"
+					+ "}"
+					+ "}" +
+					"}");
+			w.close();
+		} catch (Exception e) { 
+			System.out.println("Deu ruim");
+		}
+
 	}
 	
 }

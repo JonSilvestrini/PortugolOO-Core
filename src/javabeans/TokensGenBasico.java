@@ -97,7 +97,7 @@ public class TokensGenBasico {
         tokens.add(token);
         token = new Token("retorne", "||22|", "return");
         tokens.add(token);
-        token = new Token("este.", "||23|.", "this.");
+        token = new Token("este", "||23|", "this");
         tokens.add(token);
         token = new Token("super", "||24|", "super");
         tokens.add(token);
@@ -108,6 +108,10 @@ public class TokensGenBasico {
         token = new Token("novo", "||27|", "new");
         tokens.add(token);
         token = new Token("nova", "||27|", "new");
+        tokens.add(token);
+        token = new Token("ler", "||28|", "Loop.Read");
+        tokens.add(token);
+        token = new Token("pausar", "||29|", "Loop.delay");
         tokens.add(token);
 	
         return tokens;

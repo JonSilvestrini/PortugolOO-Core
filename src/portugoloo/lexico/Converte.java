@@ -55,7 +55,7 @@ public class Converte{
 
         String output = input;
 
-		String[] regex = {"(?=\\t*|\\A|\\s*)(",")(?=[\\(]|\\s|[\\{]|[\\[])(?=([^\"]*\"[^\"]*\")*[^\"]*$)"};
+		String[] regex = {"(?=\\t*|\\A|)\\b(",")(?=[\\(]|\\s|[\\{]|[\\[])(?=([^\"]*\"[^\"]*\")*[^\"]*$)"};
 
         for (Token token : tokens) {
             output = output.replaceAll(regex[0] + token.getLoop() + regex[1], token.getToken());
