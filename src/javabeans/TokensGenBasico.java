@@ -113,6 +113,22 @@ public class TokensGenBasico {
         tokens.add(token);
         token = new Token("pausar", "||29|", "Loop.delay");
         tokens.add(token);
+        token = new Token("converterPara\\.Inteiro", "||30|", "Integer.parseInt");
+        tokens.add(token);
+        token = new Token("converterPara\\.Real", "||31|", "Double.parseDouble");
+        tokens.add(token);
+        token = new Token("lerInteiro", "||32|", "Loop.ReadInt");
+        tokens.add(token);
+        token = new Token("lerReal", "||33|", "Loop.ReadDouble");
+        tokens.add(token);
+        token = new Token("herda", "||34|", "extends");
+        tokens.add(token);
+        token = new Token("implementa", "||35|", "implements");
+        tokens.add(token);
+        token = new Token("abstrato", "||36|", "abstract");
+        tokens.add(token);
+        token = new Token("abstrata", "||36|", "abstract");
+        tokens.add(token);
 	
         return tokens;
     }
