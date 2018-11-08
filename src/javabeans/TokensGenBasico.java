@@ -129,6 +129,10 @@ public class TokensGenBasico {
         tokens.add(token);
         token = new Token("abstrata", "||36|", "abstract");
         tokens.add(token);
+        token = new Token("se", "||37|", "if");
+        tokens.add(token);
+        token = new Token("senao", "||38|", "else");
+        tokens.add(token);
 	
         return tokens;
     }
