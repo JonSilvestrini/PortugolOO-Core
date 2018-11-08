@@ -152,31 +152,55 @@ public class Compilador {
 	public void Biblioteca() {
 		try {
 			PrintWriter w = new PrintWriter(this.path + "Loop.java", "UTF-8");
-			w.print("import java.io.BufferedReader;\n" +
-					"import java.io.IOException;\n" +
-					"import java.io.InputStreamReader;\n" +
-					"\n" +
-					"public class Loop {\n" +
-					"    public static String Read() {\n" +
-					" BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n" +
-					" String input = \"null\";\n" +
-					"\n" +
-					" try {\n" +
-					"  input = br.readLine();\n" +
-					" }\n" +
-					" catch (IOException e) {\n" +
-					"  System.out.println(\"deu ruim\");\n" +
-					" }\n" +
-					" return input;\n" +
-					" \n" +
-					"}\n" +
+			w.print("import java.io.BufferedReader;" +
+					"import java.io.IOException;" +
+					"import java.io.InputStreamReader;" +
+					"" +
+					"public class Loop {" +
+					"    public static String Read() {" +
+					" BufferedReader br = new BufferedReader(new InputStreamReader(System.in));" +
+					" String input = \"null\";" +
+					"" +
+					" try {" +
+					"  input = br.readLine();" +
+					" }" +
+					" catch (IOException e) {" +
+					"  System.out.println(\"deu ruim\");" +
+					" }" +
+					" return input;" +
+					"}" +
 					"public static void delay(int millis) {"
 					+ "try {"
 					+ "Thread.sleep(millis);"
 					+ "} catch (Exception e) {"
 					+ "System.out.println(\"erro ao pausar a programação\");"
 					+ "}"
-					+ "}" +
+					+ "}"
+				+ "public static int ReadInt() {" +
+					" BufferedReader br = new BufferedReader(new InputStreamReader(System.in));" +
+					" String input = \"null\";" +
+					"" +
+					" try {" +
+					"  input = br.readLine();" +
+					" }" +
+					" catch (IOException e) {" +
+					"  System.out.println(\"deu ruim\");" +
+					" }"
+				+ "return Integer.parseInt(input);"
+				+ "}" +
+				 "public static double ReadDouble() {" +
+					" BufferedReader br = new BufferedReader(new InputStreamReader(System.in));" +
+					" String input = \"null\";" +
+					"" +
+					" try {" +
+					"  input = br.readLine();" +
+					" }" +
+					" catch (IOException e) {" +
+					"  System.out.println(\"deu ruim\");" +
+					" }"
+				+ "return Double.parseDouble(input.replaceAll(\"(,)\", \".\"));"
+				+ "}" +
+
 					"}");
 			w.close();
 		} catch (Exception e) { 

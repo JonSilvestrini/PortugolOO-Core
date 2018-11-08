@@ -2,7 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group/>
+        <group/>
+        <group/>
+        <group/>
+        <group/>
         <group>
+<<<<<<< HEAD
             <file>file:/mnt/home/PortugolOO-Core/src/portugoloo/input/ScanFiles.java</file>
         </group>
         <group>
@@ -15,6 +21,14 @@
         </group>
         <group>
             <file>file:/C:/Users/user/Desktop/PortugolOO-Core/src/portugoloo/interpretador/Compilador.java</file>
+=======
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOOCore/src/javabeans/TokensGenBasico.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOOCore/src/javabeans/Token.java</file>
+        </group>
+        <group>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOOCore/src/javabeans/TokensGenBasico.java</file>
+            <file>file:/home/jonatas/NetBeansProjects/PortugolOOCore/src/javabeans/Token.java</file>
+>>>>>>> 65bdc04018cdfe6a33bd66905b3ff31e909cf836
         </group>
         <group>
             <file>file:/C:/Users/JONATASWILLIAMSILVES/Documents/NetBeansProjects/PortugolOOCore/src/portugoloo/lexico/Converte.java</file>
