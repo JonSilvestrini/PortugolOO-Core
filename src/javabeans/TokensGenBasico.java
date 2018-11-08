@@ -133,6 +133,12 @@ public class TokensGenBasico {
         tokens.add(token);
         token = new Token("senao", "||38|", "else");
         tokens.add(token);
+        token = new Token("igual", "||39|", "equals");
+        tokens.add(token);
+        token = new Token("substituir", "||40|", "replace");
+        tokens.add(token);
+        token = new Token("substituirTodos", "||41|", "replaceAll");
+        tokens.add(token);
 	
         return tokens;
     }

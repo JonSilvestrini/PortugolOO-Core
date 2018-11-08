@@ -57,11 +57,9 @@ public class Compilador {
 	public Compilador(List<Arquivo> arquivos, String path) {
 		this.arquivos = arquivos;
 		this.path = path + "/output/";
-		Biblioteca();	
 	}
 
 	public Compilador() {
-		Biblioteca();
 	}
 
 	public List<Arquivo> getArquivos() {
